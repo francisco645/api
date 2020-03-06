@@ -24,7 +24,7 @@ class ApiPointsTest extends TestCase
         $point2 = $this->post('/api/points', [ 'name' => 'Rafael Fernandes' ])->assertStatus(201)->decodeResponseJson();
         $point3 = $this->post('/api/points', [ 'name' => 'Encanto' ])->assertStatus(201)->decodeResponseJson();
         $point4 = $this->post('/api/points', [ 'name' => 'São Miguel' ])->assertStatus(201)->decodeResponseJson();
-
+    
         // Pau dos Ferros -> Rafael Fernandes
         $this->post("/api/points/{$point1['id']}/add-neighbor", [
             'neighbor_id' => $point2['id'], 'distance' => 20
